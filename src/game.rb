@@ -21,10 +21,12 @@ class Game
       turn
     end
     winner = winner?
-    puts "\nThe winner is #{winner.name}!"
+    div_puts "GAME OVER"
+    puts "\nThe winner is #{winner.name}!\n\n"
   end
 
   def turn
+    div_puts "NEW TURN"
     puts "\n#{@current_player.name} you're up."
     print question = Question.new
     input = gets.chomp.to_i
@@ -50,6 +52,10 @@ class Game
       return @player_1
     else return nil
     end
+  end
+
+  def div_puts(txt)
+    puts "\n------- #{txt} -------"
   end
 
 end
